@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev" : "nodemon src/app.js"
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1041.0",
+    "@aws-sdk/s3-request-presigner": "^3.1041.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "multer": "^2.1.1",
+    "sharp": "^0.34.5",
     "uuid": "^14.0.0"
   },
   "devDependencies": {
