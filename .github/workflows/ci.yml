@@ -1,0 +1,32 @@
+name: Node CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start server test
+        run: |
+          timeout 5s npm start || code=$?
+          if [ "$code" = "124" ]; then exit 0; else exit "$code"; fi
+        env:
+          PORT: 3001
+          AWS_REGION: us-east-2
+          AWS_ACCESS_KEY_ID: dummy
+          AWS_SECRET_ACCESS_KEY: dummy
+          S3_BUCKET_NAME: dummy-bucket

@@ -1,0 +1,19 @@
+# node modules
+node_modules/
+
+# env files (VERY IMPORTANT)
+.env
+
+# logs
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# nginx logs (optional)
+nginx/logs/
+
+# temp files
+tmp/
